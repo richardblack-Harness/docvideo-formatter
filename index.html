@@ -2,22 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DocVideo Converter</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
     <h1>DocVideo Converter</h1>
-    <p>Paste your Tango iframe embed below:</p>
+    <p>Convert your Tango iframe embeds to DocVideo components in three easy steps:</p>
+    
+    <ol>
+      <li>Copy your Tango iframe embed code</li>
+      <li>Paste it in the box below</li>
+      <li>Click "Convert" to get your DocVideo component</li>
+    </ol>
 
-    <textarea id="input" placeholder="<iframe src=...></iframe>"></textarea>
-    <button>Convert</button>
+    <textarea id="input" placeholder="Paste your Tango iframe here... (e.g., <iframe src='https://app.tango.us/...' title='...'></iframe>)"></textarea>
+    <button id="convert-button">Convert to DocVideo</button>
 
-    <div id="output-container">
-      <p><strong>Output:</strong></p>
+    <div id="output-container" style="display: none;">
+      <p><strong>Your DocVideo Component:</strong></p>
       <pre id="output"></pre>
-      <button id="copy-button">Copy to Clipboard</button>
-      <span id="copied" style="display:none;">✅ Copied!</span>
+      <div class="button-group">
+        <button id="copy-button">Copy to Clipboard</button>
+        <span id="copied">✅ Copied!</span>
+      </div>
     </div>
   </div>
 
