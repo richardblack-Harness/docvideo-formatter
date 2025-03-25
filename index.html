@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DocVideo Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>DocVideo Converter</h1>
+    <p>Paste your Tango iframe embed below:</p>
+
+    <textarea id="input" placeholder="<iframe src=...></iframe>"></textarea>
+    <button>Convert</button>
+
+    <div id="output-container">
+      <p><strong>Output:</strong></p>
+      <pre id="output"></pre>
+      <button id="copy-button">Copy to Clipboard</button>
+      <span id="copied" style="display:none;">✅ Copied!</span>
+    </div>
+  </div>
+
+  <script type="module" src="dist/script.js"></script>
+</body>
+</html>
