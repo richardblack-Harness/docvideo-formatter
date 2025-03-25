@@ -8,6 +8,11 @@
   --transition: all 0.3s ease;
 }
 
+/* Add box-sizing to all elements */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.6;
