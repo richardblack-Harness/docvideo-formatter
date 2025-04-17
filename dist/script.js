@@ -34,7 +34,7 @@ function convertIframe() {
         outputContainer.style.display = 'block';
         return;
     }
-    const output = `<DocVideo src="${src}" title="${title}" />`;
+    const output = `<DocVideo src="${src}?skipCover=false&defaultListView=false&skipBranding=false&makeViewOnly=false&hideAuthorAndDetails=true" title="${title}" />`;
     outputEl.textContent = output;
     outputContainer.style.display = 'block';
     copiedEl.classList.remove('visible');
