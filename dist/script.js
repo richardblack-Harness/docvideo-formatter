@@ -34,7 +34,17 @@ function convertIframe() {
         outputContainer.style.display = 'block';
         return;
     }
-    const output = `<DocVideo src="${src}?skipCover=false&defaultListView=false&skipBranding=false&makeViewOnly=false&hideAuthorAndDetails=true" title="${title}" />`;
+    const requiredParams = 'skipCover=false&defaultListView=false&skipBranding=false&makeViewOnly=false&hideAuthorAndDetails=true';
+    let newSrc = src;
+    if (!src.includes(requiredParams)) {
+        // Check if src already has query params
+        if (src.includes('?')) {
+            newSrc += (src.endsWith('?') || src.endsWith('&') ? '' : '&') + requiredParams;
+        } else {
+            newSrc += '?' + requiredParams;
+        }
+    }
+    const output = `<DocVideo src="${newSrc}" title="${title}" />`;
     outputEl.textContent = output;
     outputContainer.style.display = 'block';
     copiedEl.classList.remove('visible');
