@@ -42,7 +42,34 @@ function convertIframe(): void {
     return;
   }
 
-  const output = `<DocVideo src="${src}" title="${title}" />`;
+  // Define the required parameters as an object for easier manipulation
+  const requiredParamsObj = {
+    'skipCover': 'false',
+    'defaultListView': 'false',
+    'skipBranding': 'false',
+    'makeViewOnly': 'false',
+    'hideAuthorAndDetails': 'true'
+  };
+  
+  // Start with the original source URL
+  let newSrc = src;
+  const urlObj = new URL(src);
+  let paramsToAdd: string[] = [];
+  
+  // Check each required parameter and only add it if it doesn't exist
+  for (const [param, value] of Object.entries(requiredParamsObj)) {
+    if (!urlObj.searchParams.has(param)) {
+      paramsToAdd.push(`${param}=${value}`);
+    }
+  }
+  
+  // Add any missing parameters to the URL
+  if (paramsToAdd.length > 0) {
+    const separator = urlObj.search ? '&' : '?';
+    newSrc = src + separator + paramsToAdd.join('&');
+  }
+
+  const output = `<DocVideo src="${newSrc}" title="${title}" />`;
   outputEl.textContent = output;
   outputContainer.style.display = 'block';
   copiedEl.classList.remove('visible');
