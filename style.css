@@ -120,3 +120,79 @@ pre {
 #copied.visible {
   opacity: 1;
 }
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  position: relative;
+}
+
+.checkbox-container input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.checkbox-container .label-with-tooltip {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.checkbox-container label {
+  letter-spacing: -0.01em;
+}
+
+.tooltip-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 0.7rem;
+  border-radius: 50%;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.tooltip-icon:hover {
+  background-color: #0952CC;
+}
+
+.tooltip-icon::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem;
+  background-color: #333;
+  color: white;
+  border-radius: var(--border-radius);
+  font-size: 0.75rem;
+  white-space: normal;
+  width: 220px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 2;
+}
+
+.tooltip-icon:hover::after {
+  opacity: 1;
+}

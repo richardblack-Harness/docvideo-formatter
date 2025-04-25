@@ -18,9 +18,19 @@
     </ol>
 
     <textarea id="input" placeholder="Paste your Tango iframe here... (e.g., <iframe src='https://app.tango.us/...' title='...'></iframe>)"></textarea>
-    <button id="convert-button">Convert to DocVideo</button>
+    
+    <div class="controls">
+      <button id="convert-button">Convert to DocVideo</button>
+      <div class="checkbox-container">
+        <input type="checkbox" id="hide-details" checked>
+        <div class="label-with-tooltip">
+          <label for="hide-details">Hide Tango details</label>
+          <span class="tooltip-icon" title="When checked, Tango Author details and view count will be hidden.">?</span>
+        </div>
+      </div>
+    </div>
 
-    <div id="output-container" style="display: none;">
+    <div id="output-container">
       <p><strong>Your DocVideo Component:</strong></p>
       <pre id="output"></pre>
       <div class="button-group">
